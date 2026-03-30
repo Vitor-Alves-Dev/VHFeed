@@ -34,7 +34,11 @@ const styles = StyleSheet.create({
          backgroundColor: '#FFF',
          flexDirection: 'row',
          alignItems: 'center',
-         justifyContent: 'space-between'
+         justifyContent: 'space-between',
+         borderBottomWidth: 0.9,
+         borderColor: '#7b2cff',
+         shadowColor: '#000',
+         elevation: 2
     },
     logo: {
         height: 150,
