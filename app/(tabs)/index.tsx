@@ -12,7 +12,7 @@ import List from '../../src/List';
       descricao: 'Que vocês tenham um ótimo dia!',
       imgperfil: require('../../src/img/imagemPessoa2.jpg'),
       imgpublicacao: require('../../src/img/paisagem.jpg'),
-      likeada: true,
+      likeada: false,
       likers: 1
     },
     {   
@@ -21,7 +21,7 @@ import List from '../../src/List';
       descricao: 'Ótimo dia para viajar!',
       imgperfil: require('../../src/img/imagemPessoa.jpg'),
       imgpublicacao: require('../../src/img/paisagem2.jpg'),
-      likeada: true,
+      likeada: false,
       likers: 5
     },
     {   
@@ -30,7 +30,7 @@ import List from '../../src/List';
       descricao: 'Fim de tarde com um por do sol lindo!',
       imgperfil: require('../../src/img/imagemPessoa3.jpg'),
       imgpublicacao: require('../../src/img/paisagem3.jpg'),
-      likeada: true,
+      likeada: false,
       likers: 3
     },
     {   
@@ -39,19 +39,21 @@ import List from '../../src/List';
       descricao: 'Fazendo o que eu mais gosto, resolver bugs!',
       imgperfil: require('../../src/img/imagemPessoa4.jpg'),
       imgpublicacao: require('../../src/img/paisagem4.jpg'),
-      likeada: true,
+      likeada: false,
       likers: 10
     }
   ])
   return(
     <View style={ styles.container}>
       <Header/>
-
+     
       <FlatList
-      showsVerticalScrollIndicator={false}
-      keyExtractor={(item) => item.id}
-      data={feed}
-      renderItem={ ({item}) => <List data={item}/> }
+          showsVerticalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
+          data={feed}
+          renderItem={({ item }) => <List data={item} />}
+          style={{ flex: 1, width: '100%' }}
+          contentContainerStyle={{ paddingHorizontal: 0, paddingBottom: 20 }}
       />
       
     </View>
@@ -60,6 +62,8 @@ import List from '../../src/List';
 
 const styles = StyleSheet.create ({
   container: {
-     flex: 1
-  }
+     flex: 1,
+     backgroundColor: '#fff',
+  },
+  
 })

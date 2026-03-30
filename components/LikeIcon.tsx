@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Path, Svg } from 'react-native-svg';
 
-export default function LikeIcon( {liked} ) {
+export default function LikeIcon({ liked }) {
     
   return (
     <Svg width={30} height={28} viewBox="0 0 24 24">

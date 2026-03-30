@@ -1,10 +1,15 @@
 import { useState } from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import CommentIcon from '../../components/CommentIcon';
 import LikeIcon from '../../components/LikeIcon';
 import SendIcon from '../../components/SendIcon';
 
+
+
+
 export default function List(props) {
+    const screenWidth = Dimensions.get('window').width;
+    const isMobile = screenWidth < 500;
     const [liked, setLiked] = useState(props.data.likeada);
     const [likes, setLikes] = useState(props.data.likers);
     const handleLike = () => {
@@ -12,7 +17,12 @@ export default function List(props) {
     setLiked(!liked);
   };
     return (
-        <View>
+        <View style={{
+            width: isMobile ? '100%' : 500,   
+            alignSelf: 'center',              
+            marginBottom: 20,
+            paddingHorizontal: isMobile ? 0 : 10,
+        }}>
             <View style={ styles.viewPerfil }>
                 <Image
                 source={ props.data.imgperfil}
@@ -51,7 +61,7 @@ export default function List(props) {
 const styles = StyleSheet.create ({
   viewPerfil: {
      flexDirection: 'row',
-     flex: 1,
+     
      alignItems: 'center',
      padding: 8
      
@@ -62,18 +72,22 @@ const styles = StyleSheet.create ({
     borderRadius: 25,
   },
   nomePerfil: {
-    paddingLeft: 10,
-    fontSize: 20
+    flexShrink: 1,       // evita overflow
+  fontSize: 18,
+  fontWeight: 'bold',
+  marginLeft: 10,    
   },
   fotoFeed: {
-    aspectRatio: 1,
-    alignItems: 'center'
+    width: '100%',       // nunca ultrapassa o container
+  aspectRatio: 1,
+  borderRadius: 8,
   },
   interacao: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8
+    
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginVertical: 5,
+  gap:8
   },
   icones: {
     
