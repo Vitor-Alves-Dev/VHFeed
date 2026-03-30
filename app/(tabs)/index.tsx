@@ -4,6 +4,7 @@ import Header from '../../src/Header';
 import List from '../../src/List';
 
  export default function App() {
+  
   const  [feed, setFeed] = useState([
     {   
       id: '1',
@@ -17,27 +18,27 @@ import List from '../../src/List';
     {   
       id: '2',
       nome: 'Agatha Soares',
-      descricao: 'Hoje eu to de boa!',
+      descricao: 'Ótimo dia para viajar!',
       imgperfil: require('../../src/img/imagemPessoa.jpg'),
-      imgpublicacao: 'https://pt.quizur.com/_image?href=https://img.quizur.com/f/img60b299675ec6e9.67762000.png?lastEdited=1622317420&w=600&h=600&f=webp',
+      imgpublicacao: require('../../src/img/paisagem2.jpg'),
       likeada: true,
       likers: 5
     },
     {   
       id: '3',
       nome: 'Cinthia Teixeira',
-      descricao: 'Saudades',
+      descricao: 'Fim de tarde com um por do sol lindo!',
       imgperfil: require('../../src/img/imagemPessoa3.jpg'),
-      imgpublicacao: '',
+      imgpublicacao: require('../../src/img/paisagem3.jpg'),
       likeada: true,
       likers: 3
     },
     {   
       id: '4',
       nome: 'Gabriel Alves',
-      descricao: 'Saudades',
+      descricao: 'Fazendo o que eu mais gosto, resolver bugs!',
       imgperfil: require('../../src/img/imagemPessoa4.jpg'),
-      imgpublicacao: '',
+      imgpublicacao: require('../../src/img/paisagem4.jpg'),
       likeada: true,
       likers: 10
     }

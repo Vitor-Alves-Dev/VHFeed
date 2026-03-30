@@ -1,9 +1,16 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-import CommentIcon from '../../components/CommentIcon'
-import LikeIcon from '../../components/LikeIcon'
-import SendIcon from '../../components/SendIcon'
+import { useState } from 'react';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import CommentIcon from '../../components/CommentIcon';
+import LikeIcon from '../../components/LikeIcon';
+import SendIcon from '../../components/SendIcon';
 
 export default function List(props) {
+    const [liked, setLiked] = useState(props.data.likeada);
+    const [likes, setLikes] = useState(props.data.likers);
+    const handleLike = () => {
+    setLikes(prev => (liked ? prev - 1 : prev + 1));
+    setLiked(!liked);
+  };
     return (
         <View>
             <View style={ styles.viewPerfil }>
@@ -16,17 +23,24 @@ export default function List(props) {
             </View>
             <View>
                 <Image
+                resizeMode='cover'
                 source={ props.data.imgpublicacao}
                 style={ styles.fotoFeed }
                 />
             </View>
             <View style ={ styles.interacao}>
-              <LikeIcon style={{ marginBottom: 20}}/>
-              <CommentIcon style={ styles.icones}/>
-              <SendIcon style={ styles.icones }/>
+              <Pressable onPress={handleLike}>
+                    <LikeIcon liked={liked}/>
+              </Pressable>
+              <Pressable>
+                    <CommentIcon style={ styles.icones}/>
+              </Pressable>
+              <Pressable>
+                    <SendIcon style={ styles.icones }/>
+              </Pressable>
               
             </View>
-            <Text style={ styles.curtidas }>{props.data.likers} curtida</Text>
+            <Text style={ styles.curtidas }>{likes} curtida</Text>
             <Text style={ styles.nomeDescricao }>{props.data.nome}</Text>
             <Text  style={ styles.descricao }>{props.data.descricao}</Text>
             
@@ -48,11 +62,12 @@ const styles = StyleSheet.create ({
     borderRadius: 25,
   },
   nomePerfil: {
-    paddingLeft: 15,
+    paddingLeft: 10,
     fontSize: 20
   },
   fotoFeed: {
-    aspectRatio: 1
+    aspectRatio: 1,
+    alignItems: 'center'
   },
   interacao: {
     flex: 1,
