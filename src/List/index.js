@@ -88,6 +88,7 @@ const styles = StyleSheet.create ({
   alignItems: 'center',
   marginVertical: 5,
   gap:8
+  
   },
   icones: {
     
