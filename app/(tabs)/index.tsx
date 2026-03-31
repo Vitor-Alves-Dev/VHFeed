@@ -3,10 +3,10 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import Header from '../../src/Header';
 import List from '../../src/List';
 
- export default function App() {
-  
-  const  [feed, setFeed] = useState([
-    {   
+export default function App() {
+
+  const [feed, setFeed] = useState([
+    {
       id: '1',
       nome: 'Vitor Alves',
       descricao: 'Que vocês tenham um ótimo dia!',
@@ -15,7 +15,7 @@ import List from '../../src/List';
       likeada: false,
       likers: 1
     },
-    {   
+    {
       id: '2',
       nome: 'Agatha Soares',
       descricao: 'Ótimo dia para viajar!',
@@ -24,7 +24,7 @@ import List from '../../src/List';
       likeada: false,
       likers: 5
     },
-    {   
+    {
       id: '3',
       nome: 'Cinthia Teixeira',
       descricao: 'Fim de tarde com um por do sol lindo!',
@@ -33,7 +33,7 @@ import List from '../../src/List';
       likeada: false,
       likers: 3
     },
-    {   
+    {
       id: '4',
       nome: 'Gabriel Alves',
       descricao: 'Fazendo o que eu mais gosto, resolver bugs!',
@@ -42,28 +42,36 @@ import List from '../../src/List';
       likeada: false,
       likers: 10
     }
-  ])
-  return(
-    <View style={ styles.container}>
-      <Header/>
-     
+  ]);
+
+  return (
+  <View style={styles.container}>  
+    <Header />
+    <View style={styles.content}>
       <FlatList
-          showsVerticalScrollIndicator={false}
-          keyExtractor={(item) => item.id}
-          data={feed}
-          renderItem={({ item }) => <List data={item} />}
-          style={{ flex: 1, width: '100%' }}
-          contentContainerStyle={{ paddingHorizontal: 0, paddingBottom: 20 }}
+        showsVerticalScrollIndicator={false}
+        keyExtractor={(item) => item.id}
+        data={feed}
+        renderItem={({ item }) => <List data={item} />}
+        style={{ flex: 1 }}   // 🔥 segurança extra
       />
-      
     </View>
-  )
+
+  </View>
+);
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   container: {
-     flex: 1,
-     backgroundColor: '#fff',
+      flex: 1,
+      backgroundColor: '#f2f2f2',
   },
-  
-})
+
+  content: {
+      flex: 1,               
+      width: '100%',
+      maxWidth: 600,
+      alignSelf: 'center',
+      backgroundColor: '#fff',
+  }
+});
