@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import SendIcon from '../../components/SendIcon.tsx';
  
@@ -6,7 +5,7 @@ import SendIcon from '../../components/SendIcon.tsx';
 
 
 export default function Header() {
-   const [liked, setLiked] = useState(false);
+
     return(
 
         <View style={ styles.header}>
