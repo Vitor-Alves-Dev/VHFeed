@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import Header from './src/Header';
-import List from './src/List';
+import Header from '../../src/Header';
+import List from '../../src/List';
 
  export default function App() {
   
