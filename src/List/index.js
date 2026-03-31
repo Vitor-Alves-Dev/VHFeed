@@ -80,9 +80,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   fotoFeed: {
-    width: '100%',
-    aspectRatio: 1,
-    borderRadius: 8,
+  width: '100%',
+  height: 400,
+    
   },
   interacao: {
     flexDirection: 'row',
