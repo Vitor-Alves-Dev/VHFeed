@@ -10,7 +10,7 @@ export default function Header() {
 
         <View style={ styles.header}>
             
-            <TouchableOpacity>
+            <TouchableOpacity style={ styles.botao }>
                 <Image
                 source={require('../img/logoVH.png')}
                 style={ styles.logo}
@@ -37,18 +37,23 @@ const styles = StyleSheet.create({
          borderBottomWidth: 0.9,
          borderColor: '#7b2cff',
          shadowColor: '#000',
-         elevation: 2
+         elevation: 2,
+         padding: 30
     },
     logo: {
         height: 150,
         width: 150,
         justifyContent: 'center',
         alignItems: 'center', 
-        marginTop: 10
+        marginTop: 10,
+        
        
     },
     send: {
-       
-        marginRight: 10
+        marginRight: 10,
+        paddingRight: 50
+    },
+    botao: {
+        paddingLeft: 100
     }
 })
