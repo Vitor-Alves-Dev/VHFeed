@@ -5,17 +5,24 @@ import LikeIcon from '../../components/LikeIcon';
 import SendIcon from '../../components/SendIcon';
 
 export default function List(props) {
-
+ 
   const { width } = useWindowDimensions();
   const isMobile = width < 500;
-
+  
   const [liked, setLiked] = useState(props.data.likeada);
   const [likes, setLikes] = useState(props.data.likers);
 
   const handleLike = () => {
     setLikes(prev => (liked ? prev - 1 : prev + 1));
     setLiked(!liked);
+    
+   
   };
+  
+  const plural = likes > 1 ? 'curtidas' : 'curtida';
+  
+   
+  
 
   return (
     <View style={{
@@ -54,7 +61,7 @@ export default function List(props) {
         </Pressable>
       </View>
 
-      <Text style={styles.curtidas}>{likes} curtida</Text>
+      <Text style={styles.curtidas}>{likes} {plural}</Text>
       <Text style={styles.nomeDescricao}>{props.data.nome}</Text>
       <Text style={styles.descricao}>{props.data.descricao}</Text>
 

@@ -1,8 +1,5 @@
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import SendIcon from '../../components/SendIcon.tsx';
- 
-
-
 
 export default function Header() {
 

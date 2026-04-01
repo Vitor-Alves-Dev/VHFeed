@@ -13,7 +13,7 @@ export default function App() {
       imgperfil: require('../../src/img/imagemPessoa2.jpg'),
       imgpublicacao: require('../../src/img/paisagem.jpg'),
       likeada: false,
-      likers: 1
+      likers: 0
     },
     {
       id: '2',
